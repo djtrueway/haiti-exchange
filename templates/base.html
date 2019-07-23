@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %} | Haiti-Exchange</title>
+
+    <!-- font-familly -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Anton|Arvo|Open+Sans" 
+        rel="stylesheet">
+
+
+    <!-- Bootstrap core CSS -->      
+    <link rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">    
+    
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700|Open+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
+    
+    <!-- Bootstrap javasrcipt File -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" ></script>
+    
+    
+    <!-- Libraries CSS Files -->
+   <link href="/static/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+      
+    <!-- Main Stylesheet File -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet"/>
+
+    {% block style %}
+    {% endblock %}
+    
+</head>
+<hearder>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="top">
+        <a class="navbar-brand" href="/"><strong>Haiti-Exchange</strong></a>
+
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarNav" 
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="fa fa-list"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+           
+          </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <ul class="navbar-nav mr-auto">
+              {% if session.user_id %}
+                  <li class="nav-item active">
+                    <a class="nav-link mr-2" href="#"> <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link fa fa-bell-slash-o mr-3 mt-1" href="#"><span class="sr-only">(current)</span></a>
+                  </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle mr-4" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="fa fa-user-circle  mr-2 " ></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <!--<div class="dropdown-divider"></div>-->
+                          <a class="dropdown-item" href="">{{user_data.username}}</a>
+                              <div class="dropdown-divider"></div>
+                          <a class="dropdown-item fa fa-user-circle pl-3" href="#">Friend</a>
+                              <div class="dropdown-divider "></div>
+                          <a class="dropdown-item" href="#">About</a>
+                            <div class="dropdown-divider"></div>
+                          <a class="dropdown-item fa fa-wrench pl-3" href="">settings</a>
+          
+                        </div>
+                      </li>
+                      <li class="nav-item active">
+                        <a class="btn btn-outline-light  mr-4" href="{{url_for('logout')}}"><span class="fa fa-sign-out" ></span> </a>
+                      </li>
+                    {% else %}
+                
+
+                      <li class="nav-item active">
+                        <a href="" class="btn btn-outline-light mr-2" data-toggle="modal" data-target="#elegantModalForm">Login</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+      </nav>
+</hearder>
+<body>
+  
+{% block body %}
+
+{% endblock %}
+
+<footer class="container-fluid footer mt-5">
+  <div class="row">
+    <div class="col-md-8 col-sm-12  mt-5 ">
+      <div>
+          <h1 class="logo">Haiti-Exchange</h1>
+      </div> 
+      <div >
+        <strong class="text-light" >&#169 Haiti-Exchange, Haiti . All rights reserved</strong><br>
+        <em>Design by <a href="https://www.djtrueway.com">djtrueway</a></em>
+      </div>
+      <div  class="mt-5">
+        <div class="network"><a  href="#" class="fa fa-facebook-square move"></a></div>
+      
+        <div class="network"><a href="#" class="fa fa-twitter move"></a></div>
+      
+        <div class="network"><a  href="#" class="fa fa-instagram move"></a></div>
+        <div class="network"><a  href="#" class="fa fa-whatsapp move"></a></div>
+        <div class="network"><a  href="#" class="fa fa-linkedin-square move"></a></div>
+      </div>
+    </div>
+    <div  class="col-md-2 col-sm-6 mt-5 sponsore">
+      <p><strong class="item">Categorie</strong></p>
+        <ul>
+          <a href="#" ><li>all</li></a>
+          <a href="#" ><li>Developer Tools</li></a>
+          <a href="#" ><li>Blogs & Forums</li></a>
+          <a href="#" ><li>Databases</li></a>
+        </ul>
+    </div>
+      <div class="col-md-2 col-sm-6  mt-5 sponsore">
+        <p><strong  class="item">Sponsore</strong></p>
+          <ul >
+            <li> <a href="#" class="item-left">Digicel</a> </li>
+            <li><a href="#" >le nouvelliste</a></li>
+            <li><a href="#">Sogebank</a></li>
+            <li><a href="#">Primature</a></li>
+          </ul>
+      </div>
+      
+  </div>
+</footer>
+</body>
+{% block script %}
+{% endblock %}
+</html>

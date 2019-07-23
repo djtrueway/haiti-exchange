@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+    <title>{% block title %}Le taux de change {{title}} {% endblock %}</title>
+
+
+
+{% block style %}
+
+<style>
+    .form-sign-up p{
+        opacity: 0.6;
+    }
+    .titre-taux{
+        color:  rgb(43, 109, 117);
+    }
+</style>
+
+{% endblock %}
+
+
+{% block body %}
+
+<div class="container main">
+    {% if message %}
+    <div class="row">
+      <div id="message" class="col-md-7 col-sm-8 p-2 mx-auto border border-danger alert-danger mt-4" >
+        <ul>
+          {% for mess in message %}
+          <li>{{mess}}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+{% endif %}
+
+    <div class="row">
+      <div class="col-md-12 mx-auto">
+
+        <h3 class=" titre-taux mb-1">Le taux de change en temps reel sur Haiti-Exchange</h3>
+
+        <div class=" form-sign-up mt-2 mb-3 pr-2 pl-2 pt-5 pb-5 ">
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    <p>1 Gourde équivaut à</p>
+                    <h3>0,011 Dollar américain</h3>
+                    <p>23 juil. à 11:18 UTC · Avis de non-responsabilité</p>
+                    <div class="row">
+                        <div class="col">
+                          <input type="text" class="form-control" placeholder="Quantité">
+                        </div>
+                        <div class="col">
+                          <select type="select" class="form-control" >
+                              <option selected="Gourde" value="Gourde">Gourde</option>
+                          </select>  
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="Quantité" readonly>
+                            </div>
+                            <div class="col">
+                                <select type="select" class="form-control">
+                                    <option selected="Dollar américain" value="Dollar">Dollar américain</option>
+                                </select>  
+                            </div>
+                        </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+
+<!-- eight bootstrap modal se sa nap use pou site la -->
+
+<!-- Modal -->
+<div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+    <div class="modal-content w-200 form-elegant">
+      <!--Header-->
+      <div class="modal-header  text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>se connecter à Haiti-Exchange</strong></h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body">
+          <div class=" mx-4">
+            <!--Body-->
+
+        <form action="{{ url_for('index') }}" method="POST" accept-charset="utf-8">
+                
+            <div class="md-form mb-4">
+              <input type="text" id="Form-email" name="username" class="form-control validate">
+              <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
+            </div>
+
+            <div class="md-form pb-3">
+              <input type="password" id="Form-pass" name="password" class="form-control validate">
+              <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+              <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
+                  Password?</a></p>
+            </div>
+
+            <div class="text-center mb-3">
+              <input type="submit" class="btn btn-outline-dark btn-block" placeholder="connecter">
+            </div>
+
+      </form>
+
+        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
+          with:</p>
+
+        <div class="row my-3 d-flex justify-content-center">
+          <!--Facebook-->
+          <button type="button" class="btn   rounded-c mr-md-3 z-depth-1a"><i class="fa fa-facebook-f text-center"></i></button>
+          <!--Twitter-->
+          <button type="button" class="btn  rounded-c mr-md-3 z-depth-1a"><i class="fa fa-twitter"></i></button>
+          <!--Google +-->
+          <button type="button" class="btn  rounded-c z-depth-1a"><i class="fa fa-instagram"></i></button>
+        </div>
+      </div>
+    </div>
+      <!--Footer-->
+    <div class="modal-footer">
+        <div class=" mx-5 pt-3 mb-1">
+            <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#" class="blue-text ml-1">
+            Sign Up</a></p>
+        </div>
+    </div>
+    
+</div>
+    <!--/.Content-->
+  </div>
+</div>
+<!-- Modal -->
+
+</div>
+
+
+{% endblock %}
+
+
+{% block script %}
+{% endblock %}
+
