@@ -74,7 +74,16 @@ def logout():
 @app.route('/',methods=['GET','POST'])
 def index():
     if request.method == 'GET':
-        return render_template('index.html')     
+        """
+        base = requests.get('https://api.exchangeratesapi.io/latest')
+        if base.status_code == 200:
+            base = base.json()
+            return render_template('index.html', base=base)
+        else:
+            return 'Error'
+
+            """
+        return render_template('index.html')
     else:
         username = request.form.get('username')
         password = request.form.get('password')
